@@ -1,0 +1,15 @@
+.score-board {
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    gap: 1rem;
+    text-align: center;
+}
+
+#reset {
+    padding: 1rem 3rem;
+    text-align: center;
+}

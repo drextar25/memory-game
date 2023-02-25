@@ -1,0 +1,17 @@
+@import 'reset';
+
+@import 'card';
+@import 'game';
+@import 'scoreboard';
+
+body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    height: 100vh;
+    font-family: 'Bree Serif', serif;
+    font-size: 1rem;
+    text-align: center;
+    flex-direction: column;
+}

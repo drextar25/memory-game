@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Memory Game</title>
+
+    <link rel="stylesheet" href="/assets/scss/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link 
+    href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Genos:wght@400;600&display=swap" 
+    rel="stylesheet">
+</head>
+
+<body>
+    <div class="start-button">
+        <button 
+        type="button" 
+        id="start"
+        onclick="startGame()">
+            Start
+        </button>
+    </div>
+
+    <section class="card-list">
+        <div 
+        id="content-list">
+        </div>
+    </section>
+
+    <div id="score-board">
+        <h3>Your score is 
+            <span id="score"></span>
+        </h3>
+        <h3>
+            You have 
+            <span id="attempts"></span> attempts left.
+        </h3>
+
+        <button type="button" id="reset" onclick="reset()">
+        Play again
+        </button>
+    </div>
+
+    <script src="/assets/script.js"></script>
+</body>
+</html>
