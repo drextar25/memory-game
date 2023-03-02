@@ -1,22 +1,29 @@
 //add new cards here, make sure to add images with same name in assets/images
 let buttonList = [
-    "cat", "cat",
-    "dog", "dog",
-    "bird", "bird",
-    "hamster", "hamster",
+    "cat1", "cat1",
+    "cat2", "cat2",
+    "cat3", "cat3",
+    "cat4", "cat4",
+    "cat5", "cat5",
+    "cat6", "cat6",
+    "cat7", "cat7",
+    "cat8", "cat8",
+    "cat9", "cat9",
 ];
 
 //determine amount of user attempts and amount of points needed to win
-const definedUserChances = 5;
-const pointsToWin = 4;
+const definedUserChances = 14;
+const pointsToWin = 9;
 
 //hide scoreboard until start is clicked
-const scoreboard = document.getElementById('score-board');
-scoreboard.hidden = true;
+const scoreBoard = document.getElementById('score-board');
+scoreBoard.hidden = true;
 
+//hide cards before game starts
+document.getElementById('content-list').style.display = 'none';
 // starts game and displays cards
 startGame = () => {
-    
+    document.getElementById('content-list').style.display = 'grid';
     //shuffles array
     const shuffle = (buttonList) => {
         return buttonList.sort(() => 0.5 - Math.random());
@@ -27,15 +34,11 @@ startGame = () => {
     //disables start button so it can only clicked once
     const startButton = document.getElementById('start');
     startButton.hidden = true;
+    document.getElementById('title').style.display = 'none';
     
     //displays scoreboard
-    scoreboard.hidden = false;
     let userScore = 0;
     let userChances = definedUserChances;
-    let score = document.getElementById('score');
-    score.innerHTML = userScore;
-    let attemptsLeft = document.getElementById('attempts');
-    attemptsLeft.innerHTML = userChances;
     
     //adds buttons to div
     var display = document.getElementById('content-list');
@@ -48,7 +51,7 @@ startGame = () => {
         //adding 'flip' to cards so they first display flipped
         btn.classList.add('flip');
         const img = document.createElement("img");
-        img.src = '/assets/images/' + btn.id  + '.jpg';
+        img.src = '././assets/images/' + btn.id  + '.png';
         btn.appendChild(img);
         display.appendChild(btn);
     }
@@ -59,7 +62,9 @@ startGame = () => {
     //remove 'flip from cards' to flip cards
     setTimeout(() => {
         for (let card of cards) {
-            if (card.classList.contains("flip")) card.classList.remove("flip");
+            if (card.classList.contains("flip")) {
+                card.classList.remove("flip");
+            }
           }
     }, 5000);
     
@@ -67,8 +72,7 @@ startGame = () => {
     let hasFlippedCard = false;
     let firstCard, secondCard;
 
-    // **DANIO QUESTION: WHY WON'T THE FUNCTION BELOW
-    // WORK WITH ARROW FUNCTION ?**
+    //check if cards match
     function flipCard() {
         this.classList.add('flip');
         if (!hasFlippedCard) {
@@ -88,35 +92,48 @@ startGame = () => {
             //if match, disable cards
             disableCards();
             userScore += 1;
-            score.innerHTML = userScore;
             userChances = userChances - 1;
-            attemptsLeft.innerHTML = userChances;
             checkAttemptsLeft();
             return;
         }
         userChances = userChances - 1;
-        attemptsLeft.innerHTML = userChances;
         checkAttemptsLeft();
         //-> if card doesn't match, run unflipCards function
         unflipCards();
        
     }
-
+    let gameOver = document.getElementById('game-over');
+    
+    //display results
     function checkAttemptsLeft() {
         if (userChances <= 0) {
-            display.innerHTML = 'Try again!';
-            if (userScore >= pointsToWin) {
-                display.innerHTML = 'You did it!';
+            gameOver.innerHTML = 'Game Over. Try again! <br>Your score is: ' + userScore;
+            removeCards();
+            scoreBoard.hidden = false;
+            scoreBoard.classList.add('show-score');
+            if (userChances == 0 && userScore >= pointsToWin) {
+                gameOver.innerHTML = 'You did it! <br>Your score is: ' + userScore;
+                removeCards();
+                scoreBoard.hidden = false;
+                scoreBoard.classList.add('show-score');
             }
         }
         else if (userScore >= pointsToWin) {
-            display.innerHTML = 'You did it!';
+            gameOver.innerHTML = 'You did it! <br>Your score is: ' + userScore;
+            removeCards();
+            scoreBoard.hidden = false;
+            scoreBoard.classList.add('show-score');
         }
+        
+        
+        
     }
     //disables cards that matches
     disableCards = () => {
         firstCard.removeEventListener('click', flipCard);
+        firstCard.classList.add('bounce');
         secondCard.removeEventListener('click', flipCard);
+        secondCard.classList.add('bounce');
     }
 
     //unflips cards that do not match
@@ -124,7 +141,7 @@ startGame = () => {
         setTimeout(() => {
             firstCard.classList.remove('flip');
             secondCard.classList.remove('flip');
-        }, 1500);
+        }, 1000);
     }
 
     //listens for a click
@@ -142,7 +159,6 @@ function removeCards() {
 
 //resets the game
 function reset() {
-    removeCards();
     newDiv();
     startGame();
 }

@@ -155,83 +155,159 @@ img {
   max-width: 100%;
 }
 
+:root {
+  --white: #ffffff;
+  --card-color: #d1d1d1;
+  --background: #df8022;
+}
+
 .card.flip img {
   opacity: 100;
-}
-
-div#content-list {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 0.5rem;
-  justify-content: center;
-  padding: 1rem;
-  align-items: center;
-  text-align: center;
-}
-
-.card-list {
-  text-align: center;
+  animation: gelatine ease 1s;
 }
 
 button.card {
-  padding: 0;
-  border: 1px solid black;
-  margin: 0;
-  background: transparent;
-  width: 100px;
-  height: 100px;
+  background-color: var(--card-color);
   border-radius: 8px;
+  overflow: hidden;
+  border: 0;
+  box-shadow: 0 8px 8px -4px rgba(0, 0, 0, 0.2);
 }
 
+@keyframes gelatine {
+  from, to {
+    transform: scale(1, 1);
+  }
+  25% {
+    transform: scale(0.9, 1.1);
+  }
+  50% {
+    transform: scale(1.1, 0.9);
+  }
+  75% {
+    transform: scale(0.95, 1.05);
+  }
+}
+.bounce {
+  animation: bounce 2s ease;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
 .card img {
   opacity: 0;
-  height: 70px;
+  height: 100%;
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
-button#start {
-  font-family: "Bree Serif", serif;
-  font-size: 1rem;
-  padding: 1rem;
-  width: 100%;
+#content-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0.5rem;
+  padding: 2rem;
+  height: 100vh;
+  width: 100vw;
+  transform-style: preserve-3d;
+}
+
+@media only screen and (max-width: 600px) {
+  #content-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 0.5rem;
+    padding: 2rem;
+    height: 100vh;
+    width: 100vw;
+    transform-style: preserve-3d;
+  }
+}
+#reset, #start {
   text-align: center;
+  font-family: "Rampart One", cursive;
   border: 0;
   border-radius: 8px;
+  font-size: 4rem;
+  padding: 1rem 2rem;
 }
 
-button#reset {
-  font-family: "Bree Serif", serif;
-  font-size: 1rem;
-  padding: 1rem;
-  width: 100%;
+#reset:hover, #start:hover {
+  background-color: var(--background);
+  color: var(--white);
+  transition: 0.5s;
+}
+
+p#game-over {
   text-align: center;
-  border: 0;
-  border-radius: 8px;
+  padding: 0;
 }
 
-.score-board {
-  padding: 1rem;
+.show-score {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
-  align-content: center;
-  gap: 1rem;
-  text-align: center;
-}
-
-#reset {
-  padding: 1rem 3rem;
-  text-align: center;
+  align-items: center;
+  gap: 2rem;
 }
 
 body {
+  font-family: "Rampart One", cursive;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-content: center;
+  align-items: center;
   height: 100vh;
-  font-family: "Bree Serif", serif;
-  font-size: 1rem;
-  text-align: center;
+  font-size: 4rem;
+  color: var(--white);
+  text-shadow: 3px 3px 6px var(--background);
+  background: url(https://wallpaperaccess.com/full/3121857.jpg);
+  -webkit-backdrop-filter: blur(1px);
+          backdrop-filter: blur(1px);
+}
+
+.start-button {
+  display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#title {
+  font-size: 6rem;
+  padding-bottom: 3rem;
+  text-align: center;
+}
+
+#title:hover {
+  animation: bounce 1s ease;
+  cursor: pointer;
+}
+
+footer {
+  margin-top: auto;
+  position: fixed;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+}
+
+footer a {
+  color: var(--white);
+  font-size: 0.5rem;
+  font-family: "Courier New", Courier, monospace;
 }/*# sourceMappingURL=main.css.map */

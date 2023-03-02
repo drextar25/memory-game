@@ -7,16 +7,15 @@
 
     <title>Memory Game</title>
 
-    <link rel="stylesheet" href="/assets/scss/main.css">
+    <link rel="stylesheet" href="././assets/scss/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link 
-    href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Genos:wght@400;600&display=swap" 
-    rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rampart+One&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <div class="start-button">
+    <section class="start-button">
+        <h1 id="title";>Meow memory game!</h1>
         <button 
         type="button" 
         id="start"
@@ -32,19 +31,18 @@
     </section>
 
     <div id="score-board">
-        <h3>Your score is 
-            <span id="score"></span>
-        </h3>
-        <h3>
-            You have 
-            <span id="attempts"></span> attempts left.
-        </h3>
-
+        <p id="game-over"></p>
         <button type="button" id="reset" onclick="reset()">
         Play again
         </button>
     </div>
 
-    <script src="/assets/script.js"></script>
+    <footer>
+        <a href="http://www.freepik.com">
+            Card art designed by macrovector / Freepik
+        </a>
+    </footer>
+
+    <script src="././assets/script.js"></script>
 </body>
 </html>
