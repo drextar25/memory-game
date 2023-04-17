@@ -1,0 +1,332 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+strong {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+* {
+  outline: none;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  font-smooth: always;
+}
+
+*:focus {
+  box-shadow: none !important;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+}
+
+:root {
+  --white: #ffffff;
+  --card-color: #d1d1d1;
+  --background: #231f20;
+  --accent-color: #ff929b;
+}
+
+.card.flip img {
+  opacity: 100;
+  animation: gelatine ease 1s;
+}
+
+button.card {
+  background-color: var(--card-color);
+  border-radius: 8px;
+  overflow: hidden;
+  border: 0;
+  box-shadow: 0 8px 8px -4px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes gelatine {
+  from, to {
+    transform: scale(1, 1);
+  }
+  25% {
+    transform: scale(0.9, 1.1);
+  }
+  50% {
+    transform: scale(1.1, 0.9);
+  }
+  75% {
+    transform: scale(0.95, 1.05);
+  }
+}
+.bounce {
+  animation: bounce 2s ease;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
+.card img {
+  opacity: 0;
+  height: 100%;
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+#content-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0.5rem;
+  padding: 2rem;
+  height: 100vh;
+  width: 100vw;
+  transform-style: preserve-3d;
+}
+
+@media only screen and (max-width: 600px) {
+  #content-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 0.5rem;
+    padding: 2rem;
+    height: 100vh;
+    width: 100vw;
+    transform-style: preserve-3d;
+  }
+}
+#reset, #start {
+  text-align: center;
+  font-family: "Play", sans-serif;
+  border: 0;
+  background: transparent;
+  font-size: 4rem;
+  padding: 1rem 2rem;
+  border-radius: 20px;
+}
+@media (max-width: 800px) {
+  #reset, #start {
+    font-size: 2rem;
+  }
+}
+
+#reset:hover, #start:hover {
+  background-color: var(--background);
+  color: var(--white);
+  transition: 0.2s;
+  border-radius: 20px;
+}
+
+#game-over {
+  text-align: center;
+  padding: 0;
+}
+
+.show-score {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  background: var(--accent-color);
+  padding: 3rem;
+  border-radius: 50px;
+}
+
+body {
+  font-family: "Play", sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 4rem;
+  background: fixed url("../images/background.jpg");
+  -webkit-backdrop-filter: blur(1px);
+          backdrop-filter: blur(1px);
+  padding: 0 1.5rem;
+}
+@media (max-width: 800px) {
+  body {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+}
+
+#home {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+  border-radius: 50px;
+  background: var(--accent-color);
+}
+
+#title {
+  font-size: 4rem;
+  padding-bottom: 3rem;
+  text-align: center;
+  font-weight: 700;
+}
+
+#title:hover {
+  animation: bounce 1s ease;
+}
+
+footer {
+  margin-top: auto;
+  position: fixed;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+}
+
+footer a {
+  color: var(--white);
+  background: var(--background);
+  font-size: 1rem;
+  font-family: "Courier New", Courier, monospace;
+}/*# sourceMappingURL=main.css.map */

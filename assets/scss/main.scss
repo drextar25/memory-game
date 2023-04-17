@@ -1,0 +1,61 @@
+@import 'reset';
+@import 'color';
+@import 'card';
+@import 'game';
+@import 'scoreboard';
+
+body {
+    font-family: 'Play', sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: 4rem;
+    background: fixed url('../images/background.jpg');
+    backdrop-filter: blur(1px);
+    padding: 0 1.5rem;
+    @media(max-width:800px){
+        font-size: 2rem;
+        font-weight: 700;
+      }
+}
+
+#home {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+    border-radius: 50px;
+    background: var(--accent-color);
+}
+
+
+#title {
+    font-size: 4rem;
+    padding-bottom: 3rem;
+    text-align: center;
+    font-weight: 700;
+}
+
+#title:hover{
+    animation: bounce 1s ease;
+
+}
+
+footer{
+    margin-top: auto;
+    position: fixed;
+    left: 0;
+    width:100%;
+    bottom:0;
+}
+footer a {
+    color: var(--white);
+    background: var(--background);
+    font-size: 1rem;
+    font-family: 'Courier New', Courier, monospace;
+    
+}

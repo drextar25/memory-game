@@ -1,0 +1,15 @@
+#game-over {
+    text-align: center;
+    padding: 0;
+}
+.show-score {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    background: var(--accent-color);
+    padding: 3rem;
+    border-radius: 50px;
+}

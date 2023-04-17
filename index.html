@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="././assets/scss/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="/assets/images/cat1.png" type="image/x-icon">
+    <title>Memory Game</title>
+</head>
+
+<body>
+    <section id="home">
+        <h1 id="title">Meow memory game!</h1>
+        <button 
+        type="button" 
+        id="start"
+        onclick="startGame()">
+            Play
+        </button>
+    </section>
+
+    <section class="card-list">
+        <div 
+        id="content-list">
+        </div>
+    </section>
+
+    <div id="score-board">
+        <p id="game-over"></p>
+        <button type="button" id="reset" onclick="reset()">
+        Play again
+        </button>
+    </div>
+
+    <footer>
+        <a href="http://www.freepik.com">
+            Card art designed by macrovector / Freepik
+        </a>
+    </footer>
+
+    <script src="././assets/script.js"></script>
+</body>
+</html>
